@@ -9,7 +9,7 @@
     <link href="https://googleapis.com/css2?family=Unbounded:wght@300;400;500;600&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #060907;       /* Мягкий дорогой графит с зелёным отливом */
+            --bg-base: #060907;       
             --bg-deep: #030504;       
             --accent-mint: #a4c4b9;   
             --brand-gold: #cfa864;    
@@ -95,16 +95,15 @@
         .feat-item h4 { font-family: 'Unbounded', sans-serif; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; color: #fff; letter-spacing: 1px; }
         .feat-item p { font-size: 14px; color: #8fa09b; font-weight: 300; }
 
-        /* ИДЕАЛЬНОЕ РЕШЕНИЕ ДЛЯ ФОТО НА БЕЛОМ ФОНЕ: Светлые лаконичные карточки */
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
         .product-card { 
-            background: #ffffff; /* Белая премиальная карточка, в которой белый фон фото растворяется на 100% */
+            background: #ffffff; 
             border: none; 
             padding: 40px; 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between;
-            color: #050706; /* Темный текст для контраста */
+            color: #050706; 
             border-radius: 0;
             transition: transform 0.3s ease;
         }
@@ -118,7 +117,6 @@
         }
         .product-img-box img { max-height: 100%; max-width: 100%; object-fit: contain; display: block; }
         
-        /* Мягкая маска только для главной фотографии, которая на черном фоне */
         .hero-img-container::after {
             content: ''; position: absolute; inset: 0;
             box-shadow: inset 0 0 35px 20px var(--bg-base); pointer-events: none; z-index: 2;
@@ -186,7 +184,7 @@
         <div class="container">
             <div class="manifesto-box">
                 <h3>The Philosophy of Prevention</h3>
-                <p>AIG Premium разрывает шаблоны традиционной косметики. Мы не маскируем эстетические несовершенства. Объединяя фундаментальную науку и селективные компоненты, наши формулы перезапускают ангиогенез кожи головы, возвращая фолликулам их первородную жизненную силу и вечную молодость.</p>
+                <p>AIG Premium разрывает шаблоны традиционной косметики. Мы не маскирует эстетические несовершенства. Объединяя фундаментальную науку и селективные компоненты, наши формулы перезапускают ангиогенез кожи головы, возвращая фолликулам их первородную жизненную силу и вечную молодость.</p>
             </div>
         </div>
     </section>
@@ -206,7 +204,7 @@
                     <div class="feat-item">
                         <div>
                             <h4>Регенерация за 20 дней</h4>
-                            <p>Клинические тесты подтверждают восстановление до 85-90% активного волосяного покрова в зонах выраженного поредения.</p>
+                            <p>Клинические тесты подтверждают восстановление до 85-90% active волосяного покрова в зонах выраженного поредения.</p>
                         </div>
                     </div>
                     <div class="feat-item">
@@ -219,14 +217,14 @@
             </div>
         </div>
     </section>
-    <!-- Минималистичная контрастная витрина (Белый фон фото теперь встроен бесшовно) -->
+    <!-- Минималистичная контрастная витрина с прямыми ссылками -->
     <section id="products" style="background: var(--bg-deep);">
         <div class="container">
             <h2 class="section-title">Трихологическая коллекция</h2>
             <p class="section-subtitle">Синхронизированный ритуал восстановления плотности</p>
             <div class="products-grid">
                 
-                <!-- Карточка 1: Сыворотка -->
+                <!-- Карточка 1: Сыворотка (Прямая ссылка) -->
                 <div class="product-card">
                     <div>
                         <div class="product-img-box"><img src="serum.jpg" alt="AIG Premium Serum"></div>
@@ -242,7 +240,7 @@
                     <a href="https://ozon.ru" target="_blank" class="btn-ozon">Приобрести на Ozon</a>
                 </div>
 
-                <!-- Карточка 2: Шампунь -->
+                <!-- Карточка 2: Шампунь (Прямая ссылка) -->
                 <div class="product-card">
                     <div>
                         <div class="product-img-box"><img src="shampoo.jpg" alt="AIG Premium Shampoo"></div>
@@ -323,12 +321,12 @@
             <p class="section-subtitle">Экспертные трихологические разъяснения</p>
             <div style="max-width: 850px; margin: 0 auto; display: grid;">
                 <div class="faq-item">
-                    <h4>Безопасна ли сыворотка AIG Premium при длительном использовании?</h4>
-                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Да. В основе формулы лежит натуральный сахар 2dDR. Он восстанавливает естественную капиллярную сеть, не вызывает привыкания и работает без синдрома отмены.</p>
+                    <h4>Вызывает ли сыворотка привыкание?</h4>
+                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Нет. Формула на основе 2-дезокси-D-рибозы действует на уровне естественной регенерации сосудов. Синдром отмены отсутствует.</p>
                 </div>
                 <div class="faq-item">
                     <h4>Можно ли использовать комплекс для активации бороды?</h4>
-                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Да, формула полностью универсальна. Она эффективно пробуждает спящие фолликулы как на коже лица (для густой бороды), так и на коже головы.</p>
+                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Да, формула полностью универсальна. Она эффективно пробуждает спящие фолликулы как на коже лица (для густой бороды), так и на голове.</p>
                 </div>
                 <div class="faq-item">
                     <h4>В какой упаковке поставляется продукция?</h4>
@@ -338,7 +336,7 @@
         </div>
     </section>
 
-    <!-- Подвал сайта -->
+    <!-- Подвал сайта с прямой ссылкой на бренд -->
     <footer>
         <div class="container">
             <div class="footer-logo" style="display: flex; justify-content: center; height: 38px; margin-bottom: 24px;">
