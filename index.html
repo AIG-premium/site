@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIG Premium | Молекулярная трихология нового поколения</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Unbounded:wght@300;400;500;600&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #060907;       /* Мягкий дорогой графит с зелёным отливом */
+            --bg-deep: #030504;       
+            --accent-mint: #a4c4b9;   
+            --brand-gold: #cfa864;    
+            --text-light: #f1f5f4;
+            --text-muted: #6b7a76;
+            --card-bg: rgba(11, 20, 16, 0.3);
+            --border-thin: rgba(164, 196, 185, 0.08);
+            --ozon-blue: #005bff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-base);
+            background-image: radial-gradient(circle at 50% 0%, #0d1a15 0%, var(--bg-base) 75%);
+            color: var(--text-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            padding: 24px 0; border-bottom: 1px solid var(--border-thin);
+            position: fixed; width: 100%; top: 0;
+            background: rgba(6, 9, 7, 0.85); backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px); z-index: 1000;
+        }
+        .header-wrap { display: flex; justify-content: space-between; align-items: center; }
+        .brand-logo-img { height: 38px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+
+        .hero { padding: 240px 0 100px 0; text-align: center; position: relative; }
+        .badge {
+            display: inline-block; padding: 6px 20px; background: rgba(164, 196, 185, 0.03);
+            border: 1px solid var(--border-thin); border-radius: 0;
+            font-family: 'Unbounded', sans-serif; font-size: 10px; font-weight: 400; margin-bottom: 32px;
+            letter-spacing: 3px; text-transform: uppercase; color: var(--accent-mint);
+        }
+        
+        h1, .section-title {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+        h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.3; margin-bottom: 32px; }
+        .hero p { font-size: clamp(16px, 1.8vw, 18px); color: #8fa09b; max-width: 700px; margin: 0 auto 54px auto; font-weight: 300; }
+        
+        .btn-premium {
+            display: inline-flex; align-items: center; background-color: transparent;
+            color: var(--text-light); padding: 18px 48px; border-radius: 0; font-family: 'Unbounded', sans-serif; font-size: 11px; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease;
+            border: 1px solid var(--text-light);
+        }
+        .btn-premium:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
+        
+        .btn-ozon {
+            display: inline-flex; align-items: center; background-color: #000000;
+            color: #ffffff; padding: 16px 32px; border-radius: 0; font-family: 'Unbounded', sans-serif; font-size: 11px;
+            text-decoration: none; border: 1px solid #000000; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;
+            width: 100%; text-align: center; justify-content: center;
+        }
+        .btn-ozon:hover { background-color: transparent; color: #000000; }
+
+        section { padding: 140px 0; border-top: 1px solid var(--border-thin); }
+        .section-title { font-size: clamp(26px, 3.5vw, 34px); margin-bottom: 24px; text-align: center; }
+        .section-title span { color: var(--brand-gold); }
+        .section-subtitle { text-align: center; color: #8fa09b; max-width: 600px; margin: 0 auto 80px auto; font-size: 15px; font-weight: 300; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        .manifesto-box { background: var(--card-bg); border: 1px solid var(--border-thin); padding: 60px; text-align: center; }
+        .manifesto-box h3 { font-family: 'Unbounded', sans-serif; font-size: 16px; text-transform: uppercase; margin-bottom: 24px; color: var(--brand-gold); letter-spacing: 2px; }
+        .manifesto-box p { max-width: 750px; margin: 0 auto; color: #cbd1cf; font-size: 17px; font-weight: 200; line-height: 1.9; }
+
+        .science-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .science-text h3 { font-family: 'Unbounded', sans-serif; font-size: 18px; text-transform: uppercase; margin-bottom: 24px; color: #fff; }
+        .science-text p { color: #8fa09b; margin-bottom: 24px; font-size: 15px; font-weight: 300; }
+        .science-features { display: grid; gap: 24px; }
+        .feat-item { display: flex; gap: 24px; background: transparent; border-left: 1px solid var(--brand-gold); padding-left: 24px; }
+        .feat-item h4 { font-family: 'Unbounded', sans-serif; font-size: 13px; text-transform: uppercase; margin-bottom: 8px; color: #fff; letter-spacing: 1px; }
+        .feat-item p { font-size: 14px; color: #8fa09b; font-weight: 300; }
+
+        /* ИДЕАЛЬНОЕ РЕШЕНИЕ ДЛЯ ФОТО НА БЕЛОМ ФОНЕ: Светлые лаконичные карточки */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
+        .product-card { 
+            background: #ffffff; /* Белая премиальная карточка, в которой белый фон фото растворяется на 100% */
+            border: none; 
+            padding: 40px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            color: #050706; /* Темный текст для контраста */
+            border-radius: 0;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover { transform: translateY(-4px); }
+        
+        .product-img-box {
+            background: #ffffff; 
+            height: 380px; margin-bottom: 24px;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            position: relative;
+        }
+        .product-img-box img { max-height: 100%; max-width: 100%; object-fit: contain; display: block; }
+        
+        /* Мягкая маска только для главной фотографии, которая на черном фоне */
+        .hero-img-container::after {
+            content: ''; position: absolute; inset: 0;
+            box-shadow: inset 0 0 35px 20px var(--bg-base); pointer-events: none; z-index: 2;
+        }
+        
+        .product-card h3 { font-family: 'Unbounded', sans-serif; font-size: 15px; text-transform: uppercase; margin-bottom: 12px; color: #050706; letter-spacing: 1px; }
+        .product-tag { display: inline-block; padding: 4px 0; font-size: 11px; font-weight: 500; text-transform: uppercase; margin-bottom: 20px; color: #73541f; border-bottom: 1px solid #73541f; letter-spacing: 2px; }
+        .product-desc { color: #4a5552; margin-bottom: 28px; font-size: 14px; font-weight: 400; min-height: 66px; }
+        .product-benefits { margin-bottom: 36px; list-style: none; border-top: 1px solid #e5e7eb; padding-top: 24px; }
+        .product-benefits li { font-size: 14px; color: #1f2937; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 400; }
+        .product-benefits li span { color: #73541f; font-weight: bold; }
+        
+        .perfume-box { background: #f9fafb; border: 1px solid #f3f4f6; padding: 24px; margin-top: 16px; }
+        .perfume-title { font-family: 'Unbounded', sans-serif; font-size: 10px; text-transform: uppercase; color: #73541f; margin-bottom: 6px; letter-spacing: 1px; }
+        .perfume-notes { font-size: 13px; color: #6b7280; font-weight: 400; }
+
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+        .results-box { background: transparent; border-top: 1px solid var(--border-thin); padding: 32px 0; }
+        .results-box h4 { font-family: 'Unbounded', sans-serif; font-size: 13px; text-transform: uppercase; margin-bottom: 12px; color: #fff; letter-spacing: 1px; }
+
+        .faq-item { background: transparent; border-bottom: 1px solid var(--border-thin); padding: 32px 0; }
+        .faq-item h4 { font-family: 'Unbounded', sans-serif; font-size: 13px; text-transform: uppercase; margin-bottom: 12px; color: var(--text-light); letter-spacing: 1px; }
+        
+        .review-card { background: var(--card-bg); border: 1px solid var(--border-thin); padding: 40px; }
+        .stars { color: var(--brand-gold); margin-bottom: 20px; font-size: 11px; letter-spacing: 3px; }
+
+        footer { padding: 100px 0; border-top: 1px solid var(--border-thin); background: var(--bg-deep); text-align: center; color: var(--text-muted); font-size: 13px; font-weight: 300; }
+        .footer-logo { display: flex; justify-content: center; margin-bottom: 32px; }
+        .footer-links { margin: 32px 0; }
+        .footer-links a { color: #8fa09b; text-decoration: none; margin: 0 24px; font-size: 13px; transition: color 0.2s ease; letter-spacing: 1px; text-transform: uppercase; }
+        .footer-links a:hover { color: #fff; }
+        
+        @media (max-width: 992px) { .science-grid { grid-template-columns: 1fr; gap: 40px; } }
+        @media (max-width: 768px) { .hero { padding: 200px 0 80px 0; } .manifesto-box { padding: 32px; } .product-card { padding: 24px; } }
+    </style>
+</head>
+<body>
+
+    <!-- Навигационная панель -->
+    <header>
+        <div class="container header-wrap">
+            <div style="display: flex; align-items: center; height: 38px;">
+                <img src="logo.png" alt="AIG Premium Logo" class="brand-logo-img">
+            </div>
+            <a href="#products" class="btn-premium" style="padding: 10px 22px; font-size: 10px;">Коллекция</a>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="badge">Molecular Trichology Atelier</div>
+            <h1>Активация роста волос<br>на клеточном уровне</h1>
+            <p>Высокотехнологичный трихологический уход AIG Premium. Прогрессивные формулы на основе чистой молекулы 2dDR для абсолютного восстановления плотности, густоты волос и безупречной текстуры бороды.</p>
+            <a href="#products" class="btn-premium" style="margin-bottom: 60px;">Исследовать продукты</a>
+            
+            <div class="hero-img-container" style="position: relative; width: 100%; max-width: 500px; height: auto; display: flex; justify-content: center; align-items: center; overflow: hidden; background: transparent;">
+                <img src="hero.jpg" alt="AIG Premium Serum" style="width: 100%; height: auto; max-height: 440px; object-fit: contain; position: relative; z-index: 1; filter: contrast(1.02); display: block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Манифест бренда -->
+    <section id="philosophy" style="background: var(--bg-deep);">
+        <div class="container">
+            <div class="manifesto-box">
+                <h3>The Philosophy of Prevention</h3>
+                <p>AIG Premium разрывает шаблоны традиционной косметики. Мы не маскируем эстетические несовершенства. Объединяя фундаментальную науку и селективные компоненты, наши формулы перезапускают ангиогенез кожи головы, возвращая фолликулам их первородную жизненную силу и вечную молодость.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Научный блок про 2dDR -->
+    <section id="science">
+        <div class="container">
+            <h2 class="section-title">Инновация: <span>2-дезокси-D-рибоза</span></h2>
+            <p class="section-subtitle">Биологический прорыв в управлении густотой</p>
+            <div class="science-grid">
+                <div class="science-text">
+                    <h3>Клеточное омоложение фолликулов</h3>
+                    <p>Ключевой элемент системы — деликатный углевод 2-дезокси-D-рибоза (2dDR). Попадая в эпидермис, молекула выступает триггером для выработки факторов роста и запускает контролируемый ангиогенез — ускоренное развитие новых питающих микрососудов.</p>
+                    <p>Капиллярная сеть вокруг ослабленных луковиц полностью регенерируется, гарантируя непрерывный приток кислорода и строительных аминокислот. Это реанимирует спящие корни, переводя их в фазу анагена. Метод незаменим при диффузной потере волос и андрогенной алопеции.</p>
+                </div>
+                <div class="science-features">
+                    <div class="feat-item">
+                        <div>
+                            <h4>Регенерация за 20 дней</h4>
+                            <p>Клинические тесты подтверждают восстановление до 85-90% активного волосяного покрова в зонах выраженного поредения.</p>
+                        </div>
+                    </div>
+                    <div class="feat-item">
+                        <div>
+                            <h4>Стабильность результатов</h4>
+                            <p>В отличие от устаревших стимуляторов, формула AIG Premium не вызывает зависимости, зуда и гарантирует полное отсутствие эффекта «отмены».</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Минималистичная контрастная витрина (Белый фон фото теперь встроен бесшовно) -->
+    <section id="products" style="background: var(--bg-deep);">
+        <div class="container">
+            <h2 class="section-title">Трихологическая коллекция</h2>
+            <p class="section-subtitle">Синхронизированный ритуал восстановления плотности</p>
+            <div class="products-grid">
+                
+                <!-- Карточка 1: Сыворотка -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img-box"><img src="serum.jpg" alt="AIG Premium Serum"></div>
+                        <span class="product-tag">Intensive Activator</span>
+                        <h3>Сыворотка для роста волос и бороды, 45 мл</h3>
+                        <p class="product-desc">Высококонцентрированный молекулярный гидрогель на базе альгината натрия. Точечно регенерирует микроциркуляцию, утолщает структуру и стимулирует рост.</p>
+                        <ul class="product-benefits">
+                            <li><span>✓</span> Максимальная трихологическая дозировка 2dDR</li>
+                            <li><span>✓</span> Синергия с натуральным CO2-экстрактом розмарина</li>
+                            <li><span>✓</span> Абсолютно невесомая текстура без жирного блеска</li>
+                        </ul>
+                    </div>
+                    <a href="https://ozon.ru" target="_blank" class="btn-ozon">Приобрести на Ozon</a>
+                </div>
+
+                <!-- Карточка 2: Шампунь -->
+                <div class="product-card">
+                    <div>
+                        <div class="product-img-box"><img src="shampoo.jpg" alt="AIG Premium Shampoo"></div>
+                        <span class="product-tag">Daily Preparation & Silk</span>
+                        <h3>Шампунь для роста волос, 500 мл</h3>
+                        <p class="product-desc">Бессульфатный терапевтический уход. Деликатно очищает эпидермис от себума, раскрывая поры для глубокого проникновения активных компонентов сыворотки.</p>
+                        <ul class="product-benefits">
+                            <li><span>✓</span> Обогащен гидролизованными протеинами шёлка и кератином</li>
+                            <li><span>✓</span> Тонизирующий комплекс розмарина, имбиря и каштана</li>
+                            <li><span>✓</span> Защита структуры волоса от ломкости по всей длине</li>
+                        </ul>
+                        <div class="perfume-box">
+                            <div class="perfume-title">Olfactive Identity: Oud</div>
+                            <div class="perfume-notes">Нишевый селективный шлейф с глубокими нотами ценного удового дерева.</div>
+                        </div>
+                    </div>
+                    <a href="https://ozon.ru" target="_blank" class="btn-ozon" style="margin-top: 24px;">Приобрести на Ozon</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Динамика изменений -->
+    <section id="results">
+        <div class="container">
+            <h2 class="section-title">Динамика изменений</h2>
+            <p class="section-subtitle">Накопительный хронобиологический эффект системы</p>
+            <div class="results-grid">
+                <div class="results-box">
+                    <div style="color: var(--brand-gold); font-size: 11px; font-family: 'Unbounded', sans-serif; margin-bottom: 12px;">Phase I</div>
+                    <h4>Стабилизация корней</h4>
+                    <p style="color: #8fa09b; font-size: 14px; font-weight: 300;">Компоненты формулы тонизируют капилляры. Естественное избыточное выпадение волос полностью прекращается в первую неделю.</p>
+                </div>
+                <div class="results-box">
+                    <div style="color: var(--brand-gold); font-size: 11px; font-family: 'Unbounded', sans-serif; margin-bottom: 12px;">Phase II</div>
+                    <h4>Генерация фолликулов</h4>
+                    <p style="color: #8fa09b; font-size: 14px; font-weight: 300;">Активизируется неоангиогенез спящих луковиц. Начинается фаза появления нового здорового пушка.</p>
+                </div>
+                <div class="results-box">
+                    <div style="color: var(--brand-gold); font-size: 11px; font-family: 'Unbounded', sans-serif; margin-bottom: 12px;">Phase III</div>
+                    <h4>Абсолютная плотность</h4>
+                    <p style="color: #8fa09b; font-size: 14px; font-weight: 300;">Кератиновая матрица утолщает стержень волоса. Визуально восстанавливается природный объем и густота.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы Premium класса -->
+    <section id="reviews" style="background: var(--bg-deep);">
+        <div class="container">
+            <h2 class="section-title">Опыт клиентов</h2>
+            <p class="section-subtitle">Мнения независимых экспертов и покупателей</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 14.5px; font-weight: 300; color: #cbd1cf; margin-bottom: 24px;">«Применял сыворотку AIG для стимуляции бороды в зонах неравномерного роста. Через 3 недели пустые участки полностью затянулись плотным волосом. Качество гидрогеля превосходное, впитывается без следа.»</p>
+                    <span style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Евгений К. (Ozon Premium)</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 14.5px; font-weight: 300; color: #cbd1cf; margin-bottom: 24px;">«Шампунь с ароматом Oud — это произведение искусства, пахнет как дорогой селективный парфюм. Сыворотка полностью остановила сезонное выпадение за пару недель. Продукт премиум-класса.»</p>
+                    <span style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Мария Д. (Ozon Premium)</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 14.5px; font-weight: 300; color: #cbd1cf; margin-bottom: 24px;">«Как трихолог, я скептически отношусь к стимуляторам, но 2-дезокси-D-рибоза действительно доказывает свою эффективность на уровне ангиогенеза сосудов. Безопасная система без побочных эффектов.»</p>
+                    <span style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Доктор Валерия В. (Ozon)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Вопросы и ответы</h2>
+            <p class="section-subtitle">Экспертные трихологические разъяснения</p>
+            <div style="max-width: 850px; margin: 0 auto; display: grid;">
+                <div class="faq-item">
+                    <h4>Безопасна ли сыворотка AIG Premium при длительном использовании?</h4>
+                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Да. В основе формулы лежит натуральный сахар 2dDR. Он восстанавливает естественную капиллярную сеть, не вызывает привыкания и работает без синдрома отмены.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Можно ли использовать комплекс для активации бороды?</h4>
+                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Да, формула полностью универсальна. Она эффективно пробуждает спящие фолликулы как на коже лица (для густой бороды), так и на коже головы.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>В какой упаковке поставляется продукция?</h4>
+                    <p style="color: #8fa09b; font-size: 14.5px; font-weight: 300;">Вся линейка AIG Premium доставляется в эксклюзивных плотных брендированных тубусах, которые защищают флаконы от воздействия света и повреждений при доставке Ozon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo" style="display: flex; justify-content: center; height: 38px; margin-bottom: 24px;">
+                <img src="logo.png" alt="AIG Premium Logo" class="brand-logo-img">
+            </div>
+            <p style="letter-spacing: 1px; text-transform: uppercase; font-size: 11px; color: var(--brand-gold);">Molecular Trichology Atelier</p>
+            <div class="footer-links">
+                <a href="#science">Технология</a>
+                <a href="#products">Коллекция</a>
+                <a href="https://ozon.ru" target="_blank">Ozon Premium</a>
+            </div>
+            <p style="font-size: 11px; margin-top: 36px; color: #2a3633; font-weight: 300;">&copy; 2026 AIG Premium. All rights reserved. Информация на сайте не является публичной офертой.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
